@@ -2,6 +2,7 @@
   <div id="app">
     <div class="stage">
       <vue-baberrage
+        :isPause="barrageIsPause"
         :isShow= "barrageIsShow"
         :barrageList = "barrageList"
         :loop = "barrageLoop"
@@ -17,6 +18,7 @@
         </select>
         <input type="text" style="float:left"  v-model="msg" />
         <button type="button" style="float:left" @click="addToList">Add</button>
+        <button type="button" style="float:left;margin-left: 10px;" @click="fnIsPause(barrageIsPause)">{{barrageIsPause?'play':'pause'}}</button>
       </div>
     </div>
   </div>
@@ -30,7 +32,8 @@ export default {
   data () {
     return {
       msg: 'Hello World!vue-baberrage 2.1.0!',
-      position: 'top',
+      position: 'abc',
+      barrageIsPause: false,
       barrageIsShow: true,
       currentId: 0,
       barrageLoop: false,
@@ -38,6 +41,9 @@ export default {
     }
   },
   methods: {
+    fnIsPause (newValue) {
+      this.barrageIsPause = !newValue
+    },
     removeList () {
       this.barrageList = []
     },
@@ -121,7 +127,7 @@ a {
     justify-content: center;
 
   div {
-    width: 300px;
+    width: 600px;
     background: rgba(0, 0, 0, 0.6);
     padding: 15px;
     border-radius: 5px;
@@ -136,7 +142,7 @@ a {
     border:1px solid #CCC;
     color:#FFF;
     border-radius:0;
-    width:18%;
+    width:17%;
     box-sizing: border-box;
   }
 
@@ -148,7 +154,7 @@ a {
   }
 
   input{
-    width:64%;
+    width:47%;
     height:35px;
     background:rgba(0,0,0,.7);
     border:1px solid #8ad9ff;

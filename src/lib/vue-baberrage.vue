@@ -24,6 +24,10 @@ export default {
     VueBaberrageMsg
   },
   props: {
+    isPause: {
+      type: Boolean,
+      default: false
+    },
     isShow: {
       type: Boolean,
       default: true
@@ -213,7 +217,9 @@ export default {
 
       // 如果移动距离为0或者NaN 跳过，保持动画连续和减少重绘
       if (moveVal <= 0 || isNaN(moveVal)) return
-      item.left -= moveVal
+      if (!this.isPause) {
+        item.left -= moveVal
+      }
       // 设置移动
       this.moveTo(item, {x: item.left, y: item.top})
     },

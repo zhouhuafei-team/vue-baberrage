@@ -1,3 +1,7 @@
+# 本项目改自 https://github.com/superhos/vue-baberrage
+* 增加了水平方向弹幕滚动是否暂停的功能：
+  - 属性字段为：isPause
+  - 默认值为：false
 
 <h1 align="center">
   <br>
